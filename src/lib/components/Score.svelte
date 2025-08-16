@@ -128,4 +128,26 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+  @media (max-width: 520px) {
+    .title {
+      font-size: 2.5em;
+    }
+    .score-container {
+      padding: 5px 10px;
+      min-width: 50px;
+    }
+    .score-container .label {
+      font-size: 0.7em;
+    }
+    .score-container .value {
+      font-size: 1.2em;
+    }
+    .game-intro {
+      font-size: 0.9em;
+    }
+    .restart-button {
+      padding: 8px 15px;
+    }
+  }
 </style>

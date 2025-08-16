@@ -52,7 +52,9 @@
   }
 
   .game-container {
-    width: 500px;
+    width: 90vw;
+    max-width: 500px;
     position: relative;
+    margin: 0 auto;
   }
 </style>

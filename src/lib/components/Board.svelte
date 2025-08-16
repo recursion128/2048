@@ -76,19 +76,21 @@
 <style>
   .board-container {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Modern way to keep it square */
     background-color: #bbada0;
     border-radius: 6px;
-    padding: 15px;
+    padding: 2vmin;
     box-sizing: border-box;
+    touch-action: none; /* Prevents page scroll on swipe */
+    user-select: none; /* Prevents text selection */
   }
 
   .grid-background {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 15px;
+    gap: 2vmin;
     width: 100%;
     height: 100%;
   }
@@ -100,18 +102,21 @@
 
   .tile-container {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
+    top: 2vmin;
+    left: 2vmin;
+    right: 2vmin;
+    bottom: 2vmin;
   }
 
   .tile-wrapper {
     position: absolute;
-    width: calc(25% - 11.25px); /* (100% / 4) - (15px * 3 / 4) */
-    height: calc(25% - 11.25px);
-    top: calc(var(--row) * (25% + 3.75px)); /* 25% + (15px / 4) */
-    left: calc(var(--col) * (25% + 3.75px));
+    /* Calculation based on 4 tiles and 3 gaps. Total gap space is 3 * 2vmin.
+       Each tile is (100% - 6vmin) / 4 wide. */
+    width: calc((100% - 6vmin) / 4);
+    height: calc((100% - 6vmin) / 4);
+    /* Position calculation: tile index * (tile width + gap width) */
+    top: calc(var(--row) * ((100% - 6vmin) / 4 + 2vmin));
+    left: calc(var(--col) * ((100% - 6vmin) / 4 + 2vmin));
     transition: top 0.15s ease-in-out, left 0.15s ease-in-out;
   }
 </style>
